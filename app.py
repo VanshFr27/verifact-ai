@@ -21,8 +21,50 @@ with open(file_path, "r", encoding="utf-8") as f:
 # ------------------ CLEAN TEXT ------------------
 def clean_text(text):
     text = text.lower()
-    text = re.sub(r'[^a-z ]', '', text)
-    return text.strip()
+
+    # Remove punctuation
+    text = re.sub(r'[^a-zA-Z ]', '', text)
+
+    # Remove unnecessary words
+    stop_words = {
+        "is", "am", "are", "was", "were",
+        "do", "does", "did",
+        "the", "a", "an",
+        "of", "to", "in", "on",
+        "for", "with", "at",
+        "can", "could", "should",
+        "would", "will",
+        "please"
+    }
+
+    words = text.split()
+
+    filtered_words = [word for word in words if word not in stop_words]
+
+    return " ".join(filtered_words)
+
+def check_contradiction(user_input, fact):
+    opposite_words = {
+        "healthy": "unhealthy",
+        "unhealthy": "healthy",
+        "real": "fake",
+        "fake": "real",
+        "good": "bad",
+        "bad": "good",
+        "safe": "dangerous",
+        "dangerous": "safe",
+        "true": "false",
+        "false": "true"
+    }
+
+    user_words = set(user_input.split())
+    fact_words = set(fact.split())
+
+    for word in opposite_words:
+        if word in user_words and opposite_words[word] in fact_words:
+            return True
+
+    return False
 
 # ------------------ DATABASE SETUP ------------------
 conn = sqlite3.connect("history.db")
@@ -34,45 +76,79 @@ conn.close()
 # ------------------ MAIN ROUTE ------------------
 @app.route("/", methods=["GET", "POST"])
 def home():
+
     prediction = ""
 
     if request.method == "POST":
+
+        # User input
         user_input = clean_text(request.form["news"])
 
-        # 🔥 1. Exact Match (highest priority)
+        # Exact match
         if user_input in known_facts:
+
             prediction = known_facts[user_input]
 
         else:
-            # 🔹 2. Smart Keyword Matching
-            matched = False
-            for fact in known_facts:
-                keywords = fact.split()
-                match_count = sum(1 for word in keywords if word in user_input)
 
-                if match_count >= 2:
-                    prediction = known_facts[fact]
+            # Smart matching
+            matched = False
+
+            for fact in known_facts:
+
+                keywords = fact.split()
+
+                match_count = sum(
+                    1 for word in keywords if word in user_input
+                )
+
+                if match_count >= max(2, len(keywords)//2):
+
+                    # Contradiction check
+                    if check_contradiction(user_input, fact):
+
+                        if "Real News" in known_facts[fact]:
+                            prediction = "Fake News ❌"
+
+                        else:
+                            prediction = "Real News ✅"
+
+                    else:
+                        prediction = known_facts[fact]
+
                     matched = True
                     break
 
-            # 🔹 3. ML Model Fallback
+            # ML fallback
             if not matched:
+
                 data = vectorizer.transform([user_input])
+
                 result = model.predict(data)[0]
 
-                proba = model.predict_proba(data)[0]
-                confidence = max(proba) * 100
+                prediction = (
+                    "Real News ✅"
+                    if result == 1
+                    else "Fake News ❌"
+                )
 
-                prediction = ("Real News ✅" if result == 1 else "Fake News ❌") + f" ({confidence:.2f}% sure)"
-
-        # 🔹 Save to database
+        # Save to database
         conn = sqlite3.connect("history.db")
+
         c = conn.cursor()
-        c.execute("INSERT INTO history VALUES (?, ?)", (user_input, prediction))
+
+        c.execute(
+            "INSERT INTO history VALUES (?, ?)",
+            (user_input, prediction)
+        )
+
         conn.commit()
         conn.close()
 
-    return render_template("index.html", prediction=prediction)
+    return render_template(
+        "index.html",
+        prediction=prediction
+    )
 
 # ------------------ HISTORY API ------------------
 @app.route("/history")
