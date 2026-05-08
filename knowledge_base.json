@@ -1,0 +1,265 @@
+{
+  "capital of india": "Real News ✅",
+  "new delhi is capital of india": "Real News ✅",
+  "delhi is in india": "Real News ✅",
+  "delhi is in pakistan": "Fake News ❌",
+
+  "earth is flat": "Fake News ❌",
+  "earth revolves around sun": "Real News ✅",
+  "sun rises in east": "Real News ✅",
+  "moon is a planet": "Fake News ❌",
+
+  "india is in asia": "Real News ✅",
+  "usa is in europe": "Fake News ❌",
+  "china is in africa": "Fake News ❌",
+  "japan is in asia": "Real News ✅",
+
+  "water boils at 100 degrees": "Real News ✅",
+  "humans can breathe underwater": "Fake News ❌",
+  "plants produce oxygen": "Real News ✅",
+
+  "covid vaccine contains microchip": "Fake News ❌",
+  "5g spreads covid": "Fake News ❌",
+  "vaccines save lives": "Real News ✅",
+
+  "elon musk owns tesla": "Real News ✅",
+  "bill gates founded microsoft": "Real News ✅",
+  "google owns microsoft": "Fake News ❌",
+
+  "light travels faster than sound": "Real News ✅",
+  "sound travels faster than light": "Fake News ❌",
+
+  "earth has one moon": "Real News ✅",
+  "sun is a planet": "Fake News ❌",
+
+  "india gained independence in 1947": "Real News ✅",
+  "world war 2 ended in 1945": "Real News ✅",
+  "world war 2 ended in 1955": "Fake News ❌",
+
+  "giraffe is the tallest animal": "Real News ✅",
+  "elephant can fly": "Fake News ❌",
+
+  "water is h2o": "Real News ✅",
+  "gold is made of plastic": "Fake News ❌",
+
+  "mount everest is highest mountain": "Real News ✅",
+  "mount everest is in australia": "Fake News ❌",
+
+  "paris is capital of france": "Real News ✅",
+  "berlin is capital of germany": "Real News ✅",
+  "mumbai is capital of india": "Fake News ❌",
+
+  "amazon is a river": "Real News ✅",
+  "amazon is only a company": "Fake News ❌",
+
+  "earth is round": "Real News ✅",
+  "gravity pulls objects down": "Real News ✅",
+  "gravity pushes objects up": "Fake News ❌",
+
+  "india is a democracy": "Real News ✅",
+  "india is part of g20": "Real News ✅",
+  "india is member of united nations": "Real News ✅",
+
+  "russia invaded ukraine in 2022": "Real News ✅",
+  "ukraine is part of nato": "Fake News ❌",
+  "russia is part of nato": "Fake News ❌",
+  "nato includes usa": "Real News ✅",
+
+  "israel and palestine conflict exists": "Real News ✅",
+  "israel is in europe": "Fake News ❌",
+  "palestine is recognized by some countries": "Real News ✅",
+
+  "china claims taiwan": "Real News ✅",
+  "taiwan is universally recognized as independent country": "Fake News ❌",
+
+  "north korea has nuclear weapons": "Real News ✅",
+  "south korea is part of north korea": "Fake News ❌",
+
+  "united nations is global organization": "Real News ✅",
+  "united nations controls all countries": "Fake News ❌",
+
+  "g20 includes major economies": "Real News ✅",
+  "g20 is military alliance": "Fake News ❌",
+
+  "european union is economic union": "Real News ✅",
+  "european union is a country": "Fake News ❌",
+
+  "usa is part of nato": "Real News ✅",
+  "india is part of nato": "Fake News ❌",
+
+  "afghanistan was under taliban rule": "Real News ✅",
+  "taliban is democratic government": "Fake News ❌",
+
+  "climate change is global issue": "Real News ✅",
+  "climate change is fake": "Fake News ❌",
+
+  "china is second largest economy": "Real News ✅",
+  "usa is smallest economy": "Fake News ❌",
+
+  "brics includes india china russia brazil south africa": "Real News ✅",
+  "brics is military alliance": "Fake News ❌",
+
+  "india and pakistan have conflicts over kashmir": "Real News ✅",
+  "kashmir is only in pakistan": "Fake News ❌",
+
+  "un security council has permanent members": "Real News ✅",
+  "un security council has no permanent members": "Fake News ❌",
+
+  "oil prices affect global economy": "Real News ✅",
+  "oil has no importance in economy": "Fake News ❌",
+
+  "united states is a democracy": "Real News ✅",
+  "china is a democracy": "Fake News ❌",
+  "russia is a permanent member of un security council": "Real News ✅",
+  "india is a permanent member of un security council": "Fake News ❌",
+
+  "un security council has five permanent members": "Real News ✅",
+  "world bank is financial institution": "Real News ✅",
+  "world bank controls all countries": "Fake News ❌",
+
+  "imf stands for international monetary fund": "Real News ✅",
+  "imf is military organization": "Fake News ❌",
+
+  "asia is largest continent": "Real News ✅",
+  "africa is smallest continent": "Fake News ❌",
+
+  "antarctica has no permanent population": "Real News ✅",
+  "antarctica is a country": "Fake News ❌",
+
+  "india shares border with china": "Real News ✅",
+  "india shares border with usa": "Fake News ❌",
+
+  "pakistan is west of india": "Real News ✅",
+  "pakistan is east of india": "Fake News ❌",
+
+  "nepal is landlocked country": "Real News ✅",
+  "nepal has sea access": "Fake News ❌",
+
+  "bhutan is in asia": "Real News ✅",
+  "bhutan is in europe": "Fake News ❌",
+
+  "sri lanka is island nation": "Real News ✅",
+  "sri lanka is part of india": "Fake News ❌",
+
+  "australia is both country and continent": "Real News ✅",
+  "australia is in europe": "Fake News ❌",
+
+  "united kingdom includes england": "Real News ✅",
+  "united kingdom and england are same": "Fake News ❌",
+
+  "euro is currency of many european countries": "Real News ✅",
+  "euro is currency of india": "Fake News ❌",
+
+  "indian currency is rupee": "Real News ✅",
+  "indian currency is dollar": "Fake News ❌",
+
+  "china uses yuan as currency": "Real News ✅",
+  "china uses euro": "Fake News ❌",
+
+  "united states capital is washington dc": "Real News ✅",
+  "new york is capital of usa": "Fake News ❌",
+
+  "france is in europe": "Real News ✅",
+  "france is in asia": "Fake News ❌",
+
+  "germany is in europe": "Real News ✅",
+  "germany is in africa": "Fake News ❌",
+
+  "brazil is in south america": "Real News ✅",
+  "brazil is in europe": "Fake News ❌",
+
+  "canada is north of usa": "Real News ✅",
+  "canada is south of usa": "Fake News ❌",
+
+  "mexico is south of usa": "Real News ✅",
+  "mexico is in europe": "Fake News ❌",
+
+  "africa has most countries": "Real News ✅",
+  "europe has most countries": "Fake News ❌",
+
+  "china has largest population": "Real News ✅",
+  "india has smallest population": "Fake News ❌",
+
+  "india has one of largest populations": "Real News ✅",
+  "india has very small population": "Fake News ❌",
+
+  "internet is global network": "Real News ✅",
+  "internet is owned by one country": "Fake News ❌",
+
+  "un headquarters is in new york": "Real News ✅",
+  "un headquarters is in india": "Fake News ❌",
+
+  "world trade organization regulates trade": "Real News ✅",
+  "wto is military group": "Fake News ❌",
+
+  "arctic is in northern hemisphere": "Real News ✅",
+  "arctic is in southern hemisphere": "Fake News ❌",
+
+  "equator divides earth into two hemispheres": "Real News ✅",
+  "equator divides earth into three parts": "Fake News ❌",
+
+  "pizza is italian dish": "Real News ✅",
+  "burger originated in germany": "Real News ✅",
+  "sushi is from japan": "Real News ✅",
+  "pasta is indian food": "Fake News ❌",
+
+  "biryani is popular in india": "Real News ✅",
+  "biryani is from china": "Fake News ❌",
+  "dosa is south indian dish": "Real News ✅",
+  "dosa is chinese food": "Fake News ❌",
+
+  "idli is steamed food": "Real News ✅",
+  "idli is fried food": "Fake News ❌",
+  "paneer is dairy product": "Real News ✅",
+  "paneer is meat": "Fake News ❌",
+
+  "milk contains calcium": "Real News ✅",
+  "milk has no nutrients": "Fake News ❌",
+  "water is essential for life": "Real News ✅",
+  "water is food": "Fake News ❌",
+
+  "apple is fruit": "Real News ✅",
+  "tomato is technically fruit": "Real News ✅",
+  "potato is fruit": "Fake News ❌",
+  "carrot is root vegetable": "Real News ✅",
+
+  "chocolate is made from cocoa": "Real News ✅",
+  "chocolate is made from plastic": "Fake News ❌",
+  "honey is natural sweetener": "Real News ✅",
+  "honey is artificial chemical": "Fake News ❌",
+
+  "egg is protein rich": "Real News ✅",
+  "egg has no protein": "Fake News ❌",
+  "rice is staple food in india": "Real News ✅",
+  "rice is grown only in europe": "Fake News ❌",
+
+  "wheat is used to make bread": "Real News ✅",
+  "bread is made from plastic": "Fake News ❌",
+  "coffee contains caffeine": "Real News ✅",
+  "coffee has no caffeine": "Fake News ❌",
+
+  "tea is widely consumed beverage": "Real News ✅",
+  "tea is alcoholic drink": "Fake News ❌",
+  "soft drinks contain sugar": "Real News ✅",
+  "soft drinks are always healthy": "Fake News ❌",
+
+  "junk food is unhealthy": "Real News ✅",
+  "junk food is healthiest food": "Fake News ❌",
+  "vegetables are healthy": "Real News ✅",
+  "vegetables are harmful": "Fake News ❌",
+
+  "fruits provide vitamins": "Real News ✅",
+  "fruits have no vitamins": "Fake News ❌",
+  "ice cream is frozen dessert": "Real News ✅",
+  "ice cream is hot food": "Fake News ❌",
+
+  "oil is used for cooking": "Real News ✅",
+  "oil cannot be used in cooking": "Fake News ❌",
+  "salt enhances flavor": "Real News ✅",
+  "salt has no taste": "Fake News ❌",
+
+  "sugar is sweet": "Real News ✅",
+  "sugar is bitter": "Fake News ❌",
+  "spices add flavor to food": "Real News ✅",
+  "spices remove taste": "Fake News ❌"
+}
