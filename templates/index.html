@@ -1,157 +1,570 @@
+# Premium `index.html` for VeriFact AI
+
+Replace your current `templates/index.html` with this full code.
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>VeriFact AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VeriFact AI</title>
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at top, #0f2027, #203a43, #000000);
-            font-family: 'Segoe UI', sans-serif;
-            color: white;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .container {
-            width: 420px;
-            padding: 35px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 0 40px rgba(0,255,255,0.2);
-            text-align: center;
-            transition: 0.3s;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 60px rgba(0,255,255,0.4);
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        h1 {
-            margin-bottom: 5px;
-            font-size: 28px;
-            text-shadow: 0 0 15px cyan;
-        }
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(180deg,#050816,#0f172a,#14051f,#020617);
+    background-size:400% 400%;
+    animation:bgShift 18s ease infinite;
+    color:white;
+    overflow-x:hidden;
+    transition:background 1s ease;
+}
 
-        .tagline {
-            font-size: 13px;
-            color: #aaa;
-            margin-bottom: 20px;
-        }
+@keyframes bgShift{
+    0%{
+        background-position:0% 50%;
+    }
+    25%{
+        background-position:50% 100%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    75%{
+        background-position:50% 0%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
 
-        textarea {
-            width: 100%;
-            height: 90px;
-            border-radius: 12px;
-            border: none;
-            outline: none;
-            padding: 10px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            resize: none;
-        }
+/* Animated background */
+body::before{
+    content:'';
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(0,255,255,0.25), transparent 70%);
+    top:-200px;
+    left:-200px;
+    animation:moveGlow 10s infinite alternate ease-in-out;
+    z-index:-1;
+}
 
-        textarea::placeholder {
-            color: #bbb;
-        }
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(140,0,255,0.2), transparent 70%);
+    bottom:-200px;
+    right:-200px;
+    animation:moveGlow2 12s infinite alternate ease-in-out;
+    z-index:-1;
+}
 
-        button {
-            margin-top: 15px;
-            padding: 10px 25px;
-            border-radius: 12px;
-            border: none;
-            background: cyan;
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+@keyframes moveGlow{
+    from{transform:translate(0,0);}
+    to{transform:translate(120px,100px);}
+}
 
-        button:hover {
-            box-shadow: 0 0 20px cyan;
-            transform: scale(1.1);
-        }
+@keyframes moveGlow2{
+    from{transform:translate(0,0);}
+    to{transform:translate(-120px,-80px);}
+}
 
-        .result {
-            margin-top: 20px;
-            padding: 12px;
-            border-radius: 12px;
-            background: rgba(0,255,255,0.15);
-            box-shadow: 0 0 15px cyan;
-            font-size: 18px;
-            font-weight: bold;
-        }
+/* Navbar */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.05);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    z-index:1000;
+}
 
-        .loading {
-            margin-top: 15px;
-            display: none;
-        }
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:cyan;
+    text-shadow:0 0 15px cyan;
+}
 
-        .spinner {
-            border: 4px solid rgba(255,255,255,0.2);
-            border-top: 4px solid cyan;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: auto;
-        }
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
+}
 
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
+.nav-links a:hover{
+    color:cyan;
+}
 
-    </style>
+/* Hero Section */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 50px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero h1{
+    font-size:70px;
+    font-weight:700;
+    background:linear-gradient(to right, cyan, #9f7aea);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:fadeUp 1s ease;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:20px;
+    color:#cbd5e1;
+    line-height:1.7;
+    animation:fadeUp 1.4s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Glass card */
+.fact-box{
+    margin-top:40px;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 30px rgba(0,255,255,0.2);
+    transition:0.4s;
+}
+
+.fact-box:hover{
+    transform:translateY(-8px) scale(1.01);
+    box-shadow:0 0 45px rgba(0,255,255,0.45);
+}
+
+textarea{
+    width:100%;
+    height:120px;
+    border:none;
+    outline:none;
+    resize:none;
+    border-radius:18px;
+    padding:18px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:16px;
+}
+
+textarea::placeholder{
+    color:#cbd5e1;
+}
+
+.button-group{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+button{
+    border:none;
+    padding:14px 28px;
+    border-radius:15px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.analyze-btn{
+    background:linear-gradient(135deg, cyan, #6b46c1);
+    color:white;
+}
+
+.voice-btn{
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px rgba(0,255,255,0.5);
+}
+
+/* Result */
+.result{
+    margin-top:25px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(0,255,255,0.12);
+    box-shadow:0 0 20px rgba(0,255,255,0.25);
+    font-size:22px;
+    font-weight:600;
+    animation:pop 0.5s ease;
+}
+
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* Sections */
+.section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:50px;
+    color:cyan;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(15px);
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.card:hover{
+    transform:translateY(-14px) scale(1.03) rotateX(4deg);
+    box-shadow:0 0 40px rgba(0,255,255,0.45), 0 0 80px rgba(140,0,255,0.25);
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:25px;
+    padding:1px;
+    background:linear-gradient(135deg,rgba(0,255,255,0.4),rgba(140,0,255,0.4));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    pointer-events:none;
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:cyan;
+}
+
+.card p{
+    color:#d1d5db;
+    line-height:1.6;
+}
+
+/* Gradient section transitions */
+.section-dark{
+    background:linear-gradient(135deg,#050816,#0f172a,#172554);
+    background-size:300% 300%;
+    animation:sectionFlow 12s ease infinite;
+}
+
+.section-purple{
+    background:linear-gradient(135deg,#0f172a,#14051f,#312e81);
+    background-size:300% 300%;
+    animation:sectionFlow 14s ease infinite;
+}
+
+.section-blue{
+    background:linear-gradient(135deg,#14051f,#020617,#0f766e);
+    background-size:300% 300%;
+    animation:sectionFlow 16s ease infinite;
+}
+
+@keyframes sectionFlow{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+    background:#020617;
+}
+
+/* Scroll animation */
+.hidden{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 1s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero h1{
+        font-size:48px;
+    }
+
+    .navbar{
+        padding:18px 20px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>🧠 VeriFact AI</h1>
-    <div class="tagline">Detect Truth Instantly</div>
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo">🧠 VeriFact AI</div>
 
-    <form method="POST" id="form">
-        <textarea id="news" name="news" placeholder="Ask anything..."></textarea>
-        <br>
-        <button type="submit">Analyze</button>
-    </form>
-
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
+    <div class="nav-links">
+        <a href="#checker">Checker</a>
+        <a href="#impact">Impact</a>
+        <a href="#why">Why Us</a>
     </div>
+</div>
 
-    {% if prediction %}
-        <div class="result" id="result">
-            {{ prediction }}
+<!-- Hero -->
+<section class="hero" id="checker">
+    <div class="hero-content">
+        <h1>Detect Truth Instantly</h1>
+
+        <p>
+            VeriFact AI is an intelligent fact-checking system powered by Artificial Intelligence,
+            Natural Language Processing, and Machine Learning to fight misinformation.
+        </p>
+
+        <div class="fact-box">
+            <form method="POST" id="form">
+                <textarea id="news" name="news" placeholder="Ask anything..."></textarea>
+
+                <div class="button-group">
+                    <button type="submit" class="analyze-btn">Analyze Fact</button>
+                    <button type="button" class="voice-btn" onclick="startVoice()">🎤 Voice</button>
+                </div>
+            </form>
+
+            {% if prediction %}
+            <div class="result" id="result">
+                {{ prediction }}
+            </div>
+            {% endif %}
         </div>
-    {% endif %}
+    </div>
+</section>
+
+<!-- Fake News Impact -->
+<section class="section section-dark hidden" id="impact">
+    <h2 class="section-title">Impact of Fake News</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🌍 Social Confusion</h3>
+            <p>
+                Fake news spreads misinformation rapidly, causing panic, confusion,
+                and misunderstanding among people.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>⚖️ Political Manipulation</h3>
+            <p>
+                False information can influence elections, public opinion,
+                and create social division.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💊 Health Risks</h3>
+            <p>
+                Medical misinformation can lead to dangerous decisions,
+                especially during pandemics and emergencies.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📉 Trust Issues</h3>
+            <p>
+                Continuous fake content reduces trust in media,
+                institutions, and online platforms.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Why Use VeriFact -->
+<section class="section section-purple hidden" id="why">
+    <h2 class="section-title">Why Use VeriFact AI?</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>⚡ Instant Verification</h3>
+            <p>
+                Get real-time predictions using advanced AI and rule-based reasoning.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🧠 AI + Knowledge Base</h3>
+            <p>
+                Combines machine learning with factual knowledge for improved accuracy.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎤 Interactive Experience</h3>
+            <p>
+                Voice input, animations, smooth transitions, and intelligent responses.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🔒 Reliable System</h3>
+            <p>
+                Designed to reduce misinformation and encourage responsible information sharing.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Future Scope -->
+<section class="section section-blue hidden">
+    <h2 class="section-title">Future Scope</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🌐 Live Internet Verification</h3>
+            <p>
+                Future versions can integrate APIs to verify live news articles.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📱 Mobile Application</h3>
+            <p>
+                A dedicated mobile app can make fact-checking accessible everywhere.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌎 Multi-Language Support</h3>
+            <p>
+                Expanding to regional languages can increase accessibility globally.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<div class="footer">
+    © 2026 VeriFact AI • Powered by Machine Learning & NLP
 </div>
 
 <script>
-    const textarea = document.getElementById("news");
-    const form = document.getElementById("form");
-    const loading = document.getElementById("loading");
+// Voice Input
+function startVoice(){
+    let recognition = new webkitSpeechRecognition();
 
-    textarea.addEventListener("keypress", function(e) {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            loading.style.display = "block";
-            form.submit();
+    recognition.onresult = function(event){
+        document.getElementById("news").value = event.results[0][0].transcript;
+    }
+
+    recognition.start();
+}
+
+// Scroll animation
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
         }
-    });
+    })
+})
 
-    form.addEventListener("submit", function(){
-        loading.style.display = "block";
-    });
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el)=>observer.observe(el));
 
-    setTimeout(() => {
-        let result = document.getElementById("result");
-        if (result) result.style.display = "none";
-    }, 4000);
+// Auto hide result
+setTimeout(() => {
+    let result = document.getElementById("result");
+    if(result) result.style.display = "none";
+}, 5000);
+
+// Enter key submit
+const textarea = document.getElementById("news");
+const form = document.getElementById("form");
+
+textarea.addEventListener("keypress", function(e){
+    if(e.key === "Enter" && !e.shiftKey){
+        e.preventDefault();
+        form.submit();
+    }
+});
 </script>
 
 </body>
